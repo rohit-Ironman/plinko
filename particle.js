@@ -21,9 +21,7 @@ display(){
     ellipseMode(RADIUS); 
     ellipse(0,0,this.r,this.r); 
     pop(); 
-    /*if(frameCount%60===0){
-        particles.push(new Particle(random(width/2-10,width/2+10), 10,10));
-    }*/
+
 }
 
 
