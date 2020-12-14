@@ -8,8 +8,8 @@ var bottomBoundary, topBoundary;
 var leftBoundary, rightBoundary;
 var ground; 
 var division1, division2, division3, division4, division5, division6, division7, division8;
+var gameState = "play"; 
 
-var particles = [];
 var plinkos = [];
 var divisions =[];
 var divisionHeight=300;
@@ -23,7 +23,7 @@ function setup() {
   //Make the Boundaries 
 
   bottomBoundary = new Boundary(400,790,800,20);
-  topBoundary = new Boundary(400, 10, 800, 20); 
+
   leftBoundary = new Boundary(10, 400,20,800);
   rightBoundary = new Boundary(590,400,20,800);
  ground = new Ground(300,780,560,12);
@@ -75,7 +75,7 @@ function draw() {
   background("black");  
   Engine.update(engine);
   bottomBoundary.display();
-  topBoundary.display();
+
   leftBoundary.display();
   rightBoundary.display();
   ground.display();
@@ -94,19 +94,21 @@ function draw() {
     
   }
 
-  if(frameCount%60===0){
-    particles.push(new Particle(random(width/2-30, width/2+30), 10,10));
-    
-  }
+ 
 
-  for (var j = 0; j < particles.length; j++) {
-   
-    particles[j].display();
-  }
+
   for (var k = 0; k < divisions.length; k++) {
     
     divisions[k].display();
   }
 
 
+}
+
+function mousePressed(){
+
+    
+     particle = new Particle(mouseX, 10, 10 );
+    particle.display();
+  
 }
